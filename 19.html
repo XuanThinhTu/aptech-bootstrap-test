@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        header {
+            text-align: center;
+        }
+
+        .navbar {
+            background-color: #333; 
+        }
+        .navbar a {
+            color: white; 
+        }
+
+        .category-list {
+            width: 300px; 
+            border: 1px solid #ccc;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 10px; 
+            overflow: hidden; 
+        }
+        .category-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+        .category-list li:hover {
+            background-color: #f0f0f0;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 800px; 
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            width: 300%; 
+        }
+        .slide {
+            width: calc(100% / 3);
+            flex-shrink: 0;
+            transition: transform 0.5s ease;
+        }
+        .slide img {
+            width: 100%;
+            display: block; 
+        }
+        .slider:target #slide1 {
+            transform: translateX(0);
+        }
+        .slider:target #slide2 {
+            transform: translateX(-100%);
+        }
+        .slider:target #slide3 {
+            transform: translateX(-200%);
+        }
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .controls a {
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            width: auto;
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+        .product-card {
+            width: 30%; 
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+            border-radius: 5px; 
+        }
+        .product-card img {
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+        }
+        .product-info {
+            padding: 16px;
+        }
+        .product-price {
+            color: grey;
+            font-size: 22px;
+        }
+        .product-title {
+            font-size: 18px;
+            margin: 16px 0;
+        }
+        .star-rating {
+            font-size: 20px;
+            color: gold;
+        }
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+            }
+            .product-card {
+            width: 100%; 
+            margin-bottom: 20px;
+            }
+        }
+    
+        .footer {
+            background-color: #333; 
+            color: #fff; 
+            padding: 20px 0; 
+            text-align: center; 
+            position: fixed; 
+            left: 0;
+            bottom: 0;
+            width: 100%; 
+            font-family: Arial, sans-serif;
+        }
+
+        #name {
+            color: rgb(93, 93, 218);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h4>19. Từ Xuân Thịnh</h4>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="nen-tang" href="#">Nền Tảng</a>
+            <div class="navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="trang-chu">
+                        <a class="nav-link" href="#">Trang chủ</a>
+                    </li>
+                    <li class="gioi-thieu">
+                        <a class="nav-link" href="#">Giới thiệu</a>
+                    </li>
+                    <li class="dich-vu">
+                        <a class="nav-link" href="#">Dịch vụ</a>
+                    </li>
+                    <li class="lien-he">
+                        <a class="nav-link" href="#">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- khoang cach giữa body và nav -->
+        <div class="my-4">
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <h1 class="brand">NeTa shop</h1>
+
+                <div class="cate">
+                    <ul class="category-list">
+                        <li><a href="#">Category 1</a></li>
+                        <li><a href="#">Category 2</a></li>
+                        <li><a href="#">Category 3</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-9">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div id="slider" class="slider">
+                            <div class="slides">
+                                <div class="slide" id="slide1">
+                                    <img src="https://thanhnien.mediacdn.vn/Uploaded/chicuong/2021_12_13/porsche-911-turbo-5-7236.jpeg" alt="Image 1">
+                                </div>
+                                <div class="slide" id="slide2">
+                                    <img src="https://thanhnien.mediacdn.vn/Uploaded/chicuong/2021_12_13/porsche-911-turbo-2-5020.jpeg" alt="Image 2">
+                                </div>
+                                <div class="slide" id="slide3">
+                                    <img src="https://thanhnien.mediacdn.vn/Uploaded/chicuong/2021_12_13/porsche-911-turbo-3-3173.jpeg" alt="Image 3">
+                                </div>
+                            </div>
+                            
+                            <div class="controls">
+                                <a href="#slide3" id="prev">&lt; Prev</a>
+                                <a href="#slide2" id="next">Next &gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product -->
+                <div class="card-container">
+                    <div class="row pt-5">
+                        <div class="col-md-4 col-sm-6">
+                            <img src="https://congluan-cdn.congluan.vn/files/content/2022/11/22/1-18041347.jpg" width="100%">
+                            <div class="product-info">
+                                <h4 class="product-title">911 Kent Commission</h4>
+                                <p class="product-price">$449.000</p>
+                                <p>Graphite Gray Exterior Finish And Monarch Red Interior</p>
+                                <p class="star-rating">★★★★★</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <img src="https://static1.topspeedimages.com/wordpress/wp-content/uploads/jpg/202008/porsche-taycan-turbo-5.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5" width="100%">
+                            <div class="product-info">
+                                <h4 class="product-title">Taycan Turbo S</h4>
+                                <p class="product-price">$229.000</p>
+                                <p>The Porsche Taycan is the Stuttgart brand's premier and flagship electric car offering, taking the form of a sleek four-door liftback sedan</p>
+                                <p class="star-rating">★★★★☆</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <img src="https://static1.topspeedimages.com/wordpress/wp-content/uploads/jpg/201910/porsche-718-cayman-g-3.jpg?q=50&fit=contain&w=1140&h=&dpr=1.5" width="100%">
+                            <div class="product-info">
+                                <h4 class="product-title">718 Cayman GT4 Sports</h4>
+                                <p class="product-price">$169.000</p>
+                                <p>The same flamboyant package with a Porsche motorsport design twist in and out</p>
+                                <p class="star-rating">★★★☆☆</p>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+
+                <div class="card-container">
+                    <div class="row pt-5">
+                        <div class="col-md-4 col-sm-6">
+                            <img src="https://static1.topspeedimages.com/wordpress/wp-content/uploads/2024/01/macan_4.jpeg?q=50&fit=contain&w=1140&h=&dpr=1.5" width="100%">
+                            <div class="product-info">
+                                <h4 class="product-title">Macan</h4>
+                                <p class="product-price">$105.3s00</p>
+                                <p>The Dual-motor Setup Churns Out Up To 630 Horses</p>
+                                <p class="star-rating">★★★★☆</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <img src="https://cdcssl.ibsrv.net/autodata/images/?img=CAD40PRS041A01300.jpg&width=716" width="100%">
+                            <div class="product-info">
+                                <h4 class="product-title">Cayenne S E-Hybrid</h4>
+                                <p class="product-price">$105,650</p>
+                                <p>Striking Updates With Cutting-Edge Technology</p>
+                                <p class="star-rating">★★★★☆</p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <img src="https://static1.topspeedimages.com/wordpress/wp-content/uploads/2023/12/cropped-panamera-4-1.jpg?q=50&fit=crop&w=750&dpr=1.5" width="100%">
+                            <div class="product-info">
+                                <h4 class="product-title">718 Cayman GT4 Sports</h4>
+                                <p class="product-price">$169.000</p>
+                                <p>A Personal Safety Assistant At Your Disposal</p>
+                                <p class="star-rating">★★★★☆</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <footer class="footer">
+        Bản quyền bởi © <span id="name">TuThinh</span> 2024
+    </footer>
+
+</body>
+</html>
